@@ -1,11 +1,15 @@
 import { locToken } from './local'
 import http from './http'
+import { isUrl } from '../utils/is'
+const host = 'http://localhost:3000'
 
 // 登录校验值
 let token = locToken.get()
 export function requestInter(config) {
+  const { url } = config
   return {
     ...config,
+    url: isUrl(url) ? url : `${host}${url}`,
     header: {
       ...config.header,
       'ubbcou-header': token, // 请求中携带的 ubbcou-header 有值，server则认为访问有效

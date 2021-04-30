@@ -1,35 +1,28 @@
-import { isUrl } from '../utils/is'
 import { responseInter, requestInter } from './interceptors'
 
-const DEFAULT_HOST = 'http://localhost:3000'
-
 class Http {
-  get(url, config) {
-    return this.request(this.combineConfig(url, 'GET', config))
+  get(url, data, config) {
+    return this.request(this.combineConfig(url, 'GET', data, config))
   }
 
-  post(url, config) {
-    return this.request(this.combineConfig(url, 'POST', config))
+  post(url, data, config) {
+    return this.request(this.combineConfig(url, 'POST', data, config))
   }
 
-  put(url, config) {
-    return this.request(this.combineConfig(url, 'PUT', config))
+  put(url, data, config) {
+    return this.request(this.combineConfig(url, 'PUT', data, config))
   }
 
-  delete(url, config) {
-    return this.request(this.combineConfig(url, 'DELETE', config))
+  delete(url, data, config) {
+    return this.request(this.combineConfig(url, 'DELETE', data, config))
   }
 
   // 处理 config
-  combineConfig(url, method, config = {}) {
+  combineConfig(url, method, data, config = {}) {
     const {
       timeout = 30000,
       header,
-      data
     } = config
-    if (!isUrl(url)) {
-      url = DEFAULT_HOST + url
-    }
     const result = {
       url,
       method,
