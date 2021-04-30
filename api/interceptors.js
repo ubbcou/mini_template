@@ -1,38 +1,5 @@
 import { locToken } from './local'
-
-// interceptors.js
-// 请求拦截
 import http from './http'
-// export function requestInter(config) {
-//   return {
-//     ...config,
-//     header: {
-//       ...config.header,
-//       'ubbcou-header': 'added the header',
-//     }
-//   }
-//   // 也可以返回一个一个promise
-//   // return new Promise((resolve) => {
-//   //   resolve({
-//   //     ...config,
-//   //     header: {
-//   //       ...config.header,
-//   //       customTag: 'Bear header tag',
-//   //     }
-//   //   })
-//   // })
-// }
-
-// export function responseInter(config, response) {
-//   const { statusCode, data } = response
-//   if (statusCode === 200) {
-//     return response
-//   } else {
-//     return Promise.reject(new Error('响应非200'))
-//   }
-// }
-
-// =============== 登录业务模拟
 
 // 登录校验值
 let token = locToken.get()
