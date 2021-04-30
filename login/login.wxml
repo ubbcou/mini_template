@@ -1,0 +1,2 @@
+<!--login/login.wxml-->
+<button bind:tap="testLogin">测试登录</button>
